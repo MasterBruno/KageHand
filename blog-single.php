@@ -19,51 +19,50 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-    
-    <header role="banner">
-     
+
+  <header role="banner">
+
       <nav class="navbar navbar-expand-md navbar-dark bg-light">
-        <div class="container">
-          <a class="navbar-brand" href="index.html">LuxuryHotel</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+          <div class="container">
+              <a class="navbar-brand" href="index.php">KageHand Motel</a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
 
-          <div class="collapse navbar-collapse navbar-light" id="navbarsExample05">
-            <ul class="navbar-nav ml-auto pl-lg-5 pl-0">
-              <li class="nav-item">
-                <a class="nav-link" href="index.html">Home</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="rooms.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Rooms</a>
-                <div class="dropdown-menu" aria-labelledby="dropdown04">
-                  <a class="dropdown-item" href="rooms.html">Room Videos</a>
-                  <a class="dropdown-item" href="rooms.html">Presidential Room</a>
-                  <a class="dropdown-item" href="rooms.html">Luxury Room</a>
-                  <a class="dropdown-item" href="rooms.html">Deluxe Room</a>
-                </div>
+              <div class="collapse navbar-collapse navbar-light" id="navbarsExample05">
+                  <ul class="navbar-nav ml-auto pl-lg-5 pl-0">
+                      <li class="nav-item">
+                          <a class="nav-link active" href="index.php">Home</a>
+                      </li>
+                      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Quartos</a>
+                          <div class="dropdown-menu" aria-labelledby="dropdown04">
+                              <a class="dropdown-item" href="#">Fotos dos Quartos</a>
+                              <a class="dropdown-item" href="roomsLuxo.php">Quarto de Luxo</a>
+                              <a class="dropdown-item" href="roomsPlus.php">Quarto Plus</a>
+                          </div>
 
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="blog.html">Blog</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link " href="about.html">About</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="contact.html">Contact</a>
-              </li>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="blog.php">Blog</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="about.php">Sobre</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="contact.php">Contatos</a>
+                      </li>
 
-               <li class="nav-item cta">
-                <a class="nav-link" href="booknow.html"><span>Book Now</span></a>
-              </li>
-            </ul>
-            
+                      <li class="nav-item cta">
+                          <a class="nav-link" href="booknow.php"><span>Veja Agora</span></a>
+                      </li>
+                  </ul>
+
+              </div>
           </div>
-        </div>
       </nav>
-    </header>
-    <!-- END header -->
+  </header>
+  <!-- END header -->
 
     <section class="site-hero site-hero-innerpage overlay" data-stellar-background-ratio="0.5" style="background-image: url(images/big_image_1.jpg);">
       <div class="container">
@@ -334,13 +333,13 @@
       <div class="container">
         <div class="row mb-5">
           <div class="col-md-4">
-            <h3>Phone Support</h3>
-            <p>24/7 Call us now.</p>
-            <p class="lead"><a href="tel://">+ 1 332 3093 323</a></p>
+            <h3>Telefone</h3>
+            <p>Ligue Agora: 4321-1234.</p>
+            <p class="lead"><a href="tel://">+55 99 99999-9999</a></p>
           </div>
           <div class="col-md-4">
-            <h3>Connect With Us</h3>
-            <p>We are socialized. Follow us</p>
+            <h3>Esteja conectado.</h3>
+            <p>Nós estamos nas redes sociais. Confira!</p>
             <p>
               <a href="#" class="pl-0 p-3"><span class="fa fa-facebook"></span></a>
               <a href="#" class="p-3"><span class="fa fa-twitter"></span></a>
@@ -350,12 +349,12 @@
             </p>
           </div>
           <div class="col-md-4">
-            <h3>Connect With Us</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, odio.</p>
+            <h3>Conecte também via email...</h3>
+            <p>Deixe seu email para que possamos está mantendo sempre atualizado sobre nossos serviços.</p>
             <form action="#" class="subscribe">
               <div class="form-group">
                 <button type="submit"><span class="ion-ios-arrow-thin-right"></span></button>
-                <input type="email" class="form-control" placeholder="Enter email">
+                <input type="email" class="form-control" placeholder="Email">
               </div>
               
             </form>
@@ -364,7 +363,7 @@
         <div class="row justify-content-center">
           <div class="col-md-7 text-center">
             &copy; <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos os direitos reservados | KageHand Motel | Este template foi feito <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
           </div>
         </div>
