@@ -88,7 +88,7 @@
             <h2 class="mb-5">Formulário para Reserva</h2>
                 <form action="#" method="post">
                   <div class="row">
-                      <div class="col-sm-6 form-group">
+                      <div class="col-sm-12 form-group">
                           
                           <label for="">Data de Entrada</label>
                           <div style="position: relative;">
@@ -96,20 +96,20 @@
                             <input type='text' class="form-control" id='arrival_date' />
                           </div>
                       </div>
-
-                      <div class="col-sm-6 form-group">
-                          
-                          <label for="">Data de Saída</label>
-                          <div style="position: relative;">
-                            <span class="fa fa-calendar icon" style="position: absolute; right: 10px; top: 10px;"></span>
-                            <input type='text' class="form-control" id='departure_date' />
-                          </div>
-                      </div>
-                      
                   </div>
 
 
                   <div class="row">
+                  <div class="col-md-6 form-group">
+                      <label for="room">Tipo do Quarto</label>
+                      <select type="checkbox" name="" id="room" class="form-control">
+                        <option value="">1</option>
+                        <option value="">2</option>
+                        <option value="">3</option>
+                        <option value="">4</option>
+                        <option value="">5</option>
+                      </select>
+                    </div>
                     <div class="col-md-6 form-group">
                       <label for="room">Quarto</label>
                       <select name="" id="room" class="form-control">
