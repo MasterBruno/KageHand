@@ -93,7 +93,7 @@
                           <label for="">Data de Entrada</label>
                           <div style="position: relative;">
                             <span class="fa fa-calendar icon" style="position: absolute; right: 10px; top: 10px;"></span>
-                            <input type='text' class="form-control" id='arrival_date' />
+                            <input type='text' class="form-control" id='arrival_date' onBlur="verificaData()"/>
                           </div>
                       </div>
                   </div>
@@ -101,29 +101,49 @@
 
                   <div class="row">
                   <div class="col-md-6 form-group">
-                      <label for="room">Tipo do Quarto</label>
-                      <select type="checkbox" name="" id="room" class="form-control">
-                        <option value="">1</option>
-                        <option value="">2</option>
-                        <option value="">3</option>
-                        <option value="">4</option>
-                        <option value="">5</option>
+                      <label for="tipoQ">Tipo do Quarto</label>
+                      <select type="checkbox" name="" id="tipoQ" class="form-control" onBlur="verificaDisp()">
+						<option value="" selected disabled>Selecione...</option>;
+
+						  <?php
+							include_once './mysql.php';
+							
+							//  Realiza a busca na base de dados
+							$con = new Conexao();
+							$link = $con->conexao();
+							
+							$query = "SELECT * FROM tipo_quarto ORDER BY cod_tipoQ;";
+							
+							$sql = $link->prepare($query);
+							
+							$sql->execute();
+		
+							$list = $sql->fetchAll();
+
+							if ($list != null){
+								foreach ($list as $rs) {
+									if($rs['cod_tipoQ'] == 1) {
+										echo '<option value="'. $rs['cod_tipoQ'] .'">Luxo</option>';
+									} else {
+										echo '<option value="'. $rs['cod_tipoQ'] .'">Plus</option>';
+									}
+								}
+							} else {
+								echo '<option value="" disabled>Sem Quartos</option>';
+							}
+							?>
                       </select>
                     </div>
                     <div class="col-md-6 form-group">
-                      <label for="room">Quarto</label>
-                      <select name="" id="room" class="form-control">
-                        <option value="">1</option>
-                        <option value="">2</option>
-                        <option value="">3</option>
-                        <option value="">4</option>
-                        <option value="">5</option>
+                      <label for="nQuarto">Nº do Quarto</label>
+                      <select name="" id="nQuarto" class="form-control">
+                      
                       </select>
                     </div>
 
                     <div class="col-md-6 form-group">
-                      <label for="room">Quantidade de Adultos</label>
-                      <select name="" id="room" class="form-control">
+                      <label for="hospedes">Nº de Hospedes</label>
+                      <select name="" id="hospedes" class="form-control">
                         <option value="">1</option>
                         <option value="">2</option>
                         <option value="">3</option>
@@ -256,6 +276,10 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
     <script src="js/magnific-popup-options.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
 
+	<!--	Script -->
+	<script src="js/script.js"></script>
+	
+	
     <script>
       
       $('#arrival_date, #departure_date').datepicker({});
