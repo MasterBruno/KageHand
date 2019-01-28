@@ -86,121 +86,53 @@
         <div class="row">
           <div class="col-md-6">
             <h2 class="mb-5">Formulário para Reserva</h2>
-                <form action="#" method="post">
-                  <div class="row">
-                      <div class="col-sm-12 form-group">
-                          
-                          <label for="">Data de Entrada</label>
-                          <div style="position: relative;">
-                            <span class="fa fa-calendar icon" style="position: absolute; right: 10px; top: 10px;"></span>
-                            <input type='text' class="form-control" id='arrival_date' onBlur="verificaData()"/>
-                          </div>
-                      </div>
+            <form action="reservar.php" method="post">
+              <div class="row">
+                <div class="col-sm-12 form-group">                          
+                  <label for="">Informe o CPF</label>
+                  <div style="position: relative;">
+                    <span class="fa fa-search icon" style="position: absolute; right: 10px; top: 10px; cursor:pointer;" onClick="autocomplet()"></span>
+                    <input type='text' class="form-control" id='cpf' name="cpf" OnKeyPress="formatar('###.###.###-##', this)"/>
                   </div>
-
-
-                  <div class="row">
-                  <div class="col-md-6 form-group">
-                      <label for="tipoQ">Tipo do Quarto</label>
-                      <select type="checkbox" name="" id="tipoQ" class="form-control" onBlur="verificaDisp()">
-						<option value="" selected disabled>Selecione...</option>;
-
-						  <?php
-							include_once './mysql.php';
-							
-							//  Realiza a busca na base de dados
-							$con = new Conexao();
-							$link = $con->conexao();
-							
-							$query = "SELECT * FROM tipo_quarto ORDER BY cod_tipoQ;";
-							
-							$sql = $link->prepare($query);
-							
-							$sql->execute();
-		
-							$list = $sql->fetchAll();
-
-							if ($list != null){
-								foreach ($list as $rs) {
-									if($rs['cod_tipoQ'] == 1) {
-										echo '<option value="'. $rs['cod_tipoQ'] .'">Luxo</option>';
-									} else {
-										echo '<option value="'. $rs['cod_tipoQ'] .'">Plus</option>';
-									}
-								}
-							} else {
-								echo '<option value="" disabled>Sem Quartos</option>';
-							}
-							?>
-                      </select>
-                    </div>
-                    <div class="col-md-6 form-group">
-                      <label for="nQuarto">Nº do Quarto</label>
-                      <select name="" id="nQuarto" class="form-control">
-                      
-                      </select>
-                    </div>
-
-                    <div class="col-md-6 form-group">
-                      <label for="hospedes">Nº de Hospedes</label>
-                      <select name="" id="hospedes" class="form-control">
-                        <option value="">1</option>
-                        <option value="">2</option>
-                        <option value="">3</option>
-                        <option value="">4</option>
-                        <option value="">5+</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-12 form-group">
-                      <label for="email">Email</label>
-                      <input type="email" id="email" class="form-control ">
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-12 form-group">
-                      <label for="message">Deixe uma observação, caso necessário:</label>
-                      <textarea name="message" id="message" class="form-control " cols="30" rows="8"></textarea>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-6 form-group">
-                      <input type="submit" value="Reserve Agora" class="btn btn-primary">
-                    </div>
-                  </div>
-                </form>
-              </div>
-              <div class="col-md-1"></div>
-              <div class="col-md-5">
-                <h3 class="mb-5">Conheça o Quarto</h3>
-                <div class="media d-block room mb-0">
-              <figure>
-                <img src="images/img_1.jpg" alt="Generic placeholder image" class="img-fluid">
-                <div class="overlap-text">
-                  <span>
-                    "O Quarto"
-                    <span class="ion-ios-star"></span>
-                    <span class="ion-ios-star"></span>
-                    <span class="ion-ios-star"></span>
-                  </span>
                 </div>
-              </figure>
-              <div class="media-body">
-                <h3 class="mt-0"><a href="#">Quarto de Luxo</a></h3>
-                <ul class="room-specs">
-                  <li><span class="ion-ios-people-outline"></span> 2 Adultos</li>
-                  <li><span class="ion-ios-crop"></span> 20 m² <sup>2</sup></li>
-                </ul>
-                <p>Tudo de melhor para você. </p>
-                <p><a href="#" class="btn btn-primary btn-sm">Reserve agora sua noite por R$20.</a></p>
               </div>
+              <div class="list-group">
+                <ul class="list-unstyled list-group" id="sugestao" style="margin-bottom:10px;"></ul>
+              </div>
+              <div id="finalizar">
+              </div>
+            </form>
+          </div>
+          <div class="col-md-1"></div>
+          <div class="col-md-5">
+            <h3 class="mb-5">Conheça o Quarto</h3>
+            <div class="media d-block room mb-0">
+          <figure>
+            <img src="images/img_1.jpg" alt="Generic placeholder image" class="img-fluid">
+            <div class="overlap-text">
+              <span>
+                "O Quarto"
+                <span class="ion-ios-star"></span>
+                <span class="ion-ios-star"></span>
+                <span class="ion-ios-star"></span>
+              </span>
             </div>
-              </div>
+          </figure>
+          <div class="media-body">
+            <h3 class="mt-0"><a href="#">Quarto de Luxo</a></h3>
+            <ul class="room-specs">
+              <li><span class="ion-ios-people-outline"></span> 2 Adultos</li>
+              <li><span class="ion-ios-crop"></span> 20 m² <sup>2</sup></li>
+            </ul>
+            <p>Tudo de melhor para você. </p>
+            <p><a href="booknow.php" class="btn btn-primary btn-sm">Reserve agora sua noite por R$20.</a></p>
+          </div>
         </div>
       </div>
-    </section>
-    <!-- END section -->
+    </div>
+  </div>
+</section>
+<!-- END section -->
 
 
    

@@ -1,0 +1,128 @@
+DROP SCHEMA IF EXISTS KageHand;
+CREATE DATABASE IF NOT EXISTS KageHand;
+USE KageHand;
+
+--
+-- Table structure for table `hospede`
+--
+CREATE TABLE `hospede` (
+  `cod_hospede` int(11) NOT NULL AUTO_INCREMENT,
+  `cpf` varchar(14) NOT NULL,
+  `nome` varchar(30) NOT NULL,
+  `sobrenome` varchar(30) NOT NULL,
+  `email` varchar(30) DEFAULT NULL,
+  `cartao` int(19) NOT NULL,
+  `rua` varchar(30) DEFAULT NULL,
+  `numero` int(11) DEFAULT NULL,
+  `complemento` varchar(30) DEFAULT NULL,
+  `bairro` varchar(30) DEFAULT NULL,
+  `cidade` varchar(30) DEFAULT NULL,
+  `estado` varchar(2) DEFAULT NULL,
+  PRIMARY KEY (`cod_hospede`)
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `conta`
+--
+CREATE TABLE `conta` (
+  `cod_conta` int(11) NOT NULL AUTO_INCREMENT,
+  `valor_conta` double NOT NULL,
+  `descricao_conta` VARCHAR(30) NOT NULL,
+  PRIMARY KEY (`cod_conta`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `desp_motel`
+--
+CREATE TABLE `desp_motel` (
+  `cod_despM` int(11) NOT NULL,
+  PRIMARY KEY (`cod_despM`),
+  FOREIGN KEY (`cod_despM`) REFERENCES `conta` (`cod_conta`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `desp_quarto`
+--
+CREATE TABLE `desp_quarto` (
+  `cod_despQ` int(11) NOT NULL,
+  PRIMARY KEY (`cod_despQ`),
+  FOREIGN KEY (`cod_despQ`) REFERENCES `conta` (`cod_conta`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `tipo_produto`
+--
+CREATE TABLE `tipo_produto` (
+  `cod_tipoP` int(11) NOT NULL AUTO_INCREMENT,
+  `tipo_tipoP` VARCHAR(30) NOT NULL,
+  PRIMARY KEY (`cod_tipoP`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `produto`
+--
+CREATE TABLE `produto` (
+  `cod_produto` int(11) NOT NULL AUTO_INCREMENT,
+  `nome_produto` VARCHAR(30) NOT NULL,
+  `cod_tipoP` int(11) NOT NULL,
+  PRIMARY KEY (`cod_produto`),
+  FOREIGN KEY (`cod_tipoP`) REFERENCES `tipo_produto` (`cod_tipoP`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `tipo_quarto`
+--
+CREATE TABLE `tipo_quarto` (
+  `cod_tipoQ` int(11) NOT NULL AUTO_INCREMENT,
+  `desc_quarto` VARCHAR(15) NOT NULL,
+  `valor_quarto` double NOT NULL,
+  PRIMARY KEY (`cod_tipoQ`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `quarto`
+--
+CREATE TABLE `quarto` (
+  `cod_quarto` int(11) NOT NULL AUTO_INCREMENT,
+  `vago_quarto` BOOL NOT NULL,
+  `cod_tipoQ` int(11) NOT NULL,
+  PRIMARY KEY (`cod_quarto`),
+  FOREIGN KEY (`cod_tipoQ`) REFERENCES `tipo_quarto` (`cod_tipoQ`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `reserva`
+--
+CREATE TABLE `reserva` (
+  `cod_reserva` int(11) NOT NULL AUTO_INCREMENT,
+  `dataI_reserva` DATETIME NOT NULL,
+  `horaE_reserva` TIME NOT NULL,
+  `cod_hospede` int(11) NOT NULL,
+  `cod_quarto` int(11) NOT NULL,
+  PRIMARY KEY (`cod_reserva`),
+  FOREIGN KEY (`cod_hospede`) REFERENCES `hospede` (`cod_hospede`),
+  FOREIGN KEY (`cod_quarto`) REFERENCES `quarto` (`cod_quarto`),
+  CHECK (`cod_atendente` <> `cod_hospede`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `reserva_conta`
+--
+CREATE TABLE `reserva_conta` (
+  `cod_reserva` int(11) NOT NULL,
+  `cod_conta` int(11) NOT NULL,
+  PRIMARY KEY (`cod_reserva`, `cod_conta`),
+  FOREIGN KEY (`cod_reserva`) REFERENCES `reserva` (`cod_reserva`),
+  FOREIGN KEY (`cod_conta`) REFERENCES `desp_quarto` (`cod_despQ`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `conta_produto`
+--
+CREATE TABLE `conta_produto` (
+  `cod_conta` int(11) NOT NULL,
+  `cod_produto` int(11) NOT NULL,
+  PRIMARY KEY (`cod_conta`, `cod_produto`),
+  FOREIGN KEY (`cod_conta`) REFERENCES `conta` (`cod_conta`),
+  FOREIGN KEY (`cod_produto`) REFERENCES `produto` (`cod_produto`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;

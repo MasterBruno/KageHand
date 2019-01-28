@@ -89,157 +89,46 @@
 
     <section class="site-section">
       <div class="container">
-        <div class="row align-items-center">
-          <div class="col-md-4">
-            <div class="heading-wrap text-center element-animate">
-              <h4 class="sub-heading">Hospede nos melhores quartos</h4>
-              <h2 class="heading">Entre e visite</h2>
-              <p class="mb-5">O KageHand Motel é a mais nova opção online para quem deseja hospedar em um motel com rapidez e facilidade, para aqueles apressadinhos que necessitam de uma noite mais do que qualquer outra. Venham e conheçam o melhor Motel!</p>
-              <p><a href="#" class="btn btn-primary btn-sm">Um pouco mais...</a></p>
-            </div>
-          </div>
-          <div class="col-md-1"></div>
-          <div class="col-md-7">
-            <img src="images/f_img_1.png" alt="Image placeholder" class="img-md-fluid">
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- END section -->
-
-    <section class="site-section bg-light">
-      <div class="container">
-        <div class="row mb-5">
-          <div class="col-md-12 heading-wrap text-center">
-            <h4 class="sub-heading">Nossos Quartos</h4>
-              <h2 class="heading">Os Melhores</h2>
-          </div>
-        </div>
-        <div class="row ">
-          <div class="col-md-7">
-            <div class="media d-block room mb-0">
-              <figure>
-                <img src="images/img_1.jpg" alt="Generic placeholder image" class="img-fluid">
-                <div class="overlap-text">
-                  <span>
-                    "Luxo"
-                    <span class="ion-ios-star"></span>
-                    <span class="ion-ios-star"></span>
-                    <span class="ion-ios-star"></span>
-                  </span>
+        <div class="row">
+          <div class="col-md-12">
+            <h2 class="mb-5">Buscar Reservas</h2>
+            <form action="#" method="post">
+              <div class="row">
+                <div class="col-sm-6 form-group">                          
+                  <label for="">Informe o CPF</label>
+                  <div style="position: relative;">
+                    <span class="fa fa-address-card icon" style="position: absolute; right: 10px; top: 10px; cursor:pointer;"></span>
+                    <input type='text' class="form-control" maxlength="14" id='cpf' name="cpf" OnKeyPress="formatar('###.###.###-##', this)"/>
+                  </div>
                 </div>
-              </figure>
-              <div class="media-body">
-                <h3 class="mt-0"><a href="#">Quartos de Luxo</a></h3>
-                <ul class="room-specs">
-                  <li><span class="ion-ios-people-outline"></span> 2 Adultos</li>
-                  <li><span class="ion-ios-crop"></span> 20 m² <sup>2</sup></li>
-                </ul>
-                <p>Fornecendo os melhores serviços à você, cliente. </p>
-                <p><a href="#" class="btn btn-primary btn-sm">Hospede agora por R$20/noite.</a></p>
+                <div class="col-sm-6 form-group">                          
+                  <label for="">Informe a senha</label>
+                  <div style="position: relative;">
+                    <span class="fa fa-key icon" style="position: absolute; right: 10px; top: 10px; cursor:pointer;"></span>
+                    <input type='text' class="form-control" id="senha" name="senha" maxlength="16"/>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-          <div class="col-md-5 room-thumbnail-absolute">
-            <a href="#" class="media d-block room bg first-room" style="background-image: url(images/img_2.jpg); ">
-              <!-- <figure> -->
-                <div class="overlap-text">
-                  <span>
-                    Quarto Plus
-                    <span class="ion-ios-star"></span>
-                    <span class="ion-ios-star"></span>
-                    <span class="ion-ios-star"></span>
-                  </span>
-                  <span class="pricing-from">
-                    por R$22/Noite
-                  </span>
+              <div class="row">
+                <div class="col-md-12 form-group">
+                    <input type="button" value="Pesquisar" class="btn btn-primary" onClick="buscarReserva()">
                 </div>
-              <!-- </figure> -->
-            </a>
-
-            <a href="#" class="media d-block room bg second-room" style="background-image: url(images/img_4.jpg); ">
-              <!-- <figure> -->
-                <div class="overlap-text">
-                  <span>
-                    Quarto Plus
-                    <span class="ion-ios-star"></span>
-                    <span class="ion-ios-star"></span>
-                    <span class="ion-ios-star"></span>
-                  </span>
-                  <span class="pricing-from">
-                    por R$22/Noite
-                  </span>
-                </div>
-              <!-- </figure> -->
-            </a>
-            
+              </div>
+            </form>
           </div>
         </div>
       </div>
     </section>
 
-   
     
-    <section class="section-cover" data-stellar-background-ratio="0.5" style="background-image: url(images/img_5.jpg);">
-      <div class="container">
-        <div class="row justify-content-center align-items-center intro">
-          <div class="col-md-9 text-center element-animate">
-            <h2>Relaxe e somente aproveite a noite</h2>
-            <p class="lead mb-5">Com a gente você com toda a certeza terá uma das melhores noites de sua vida!</p>
-            <div class="btn-play-wrap"><a href="https://vimeo.com/channels/staffpicks/93951774" class="btn-play popup-vimeo "><span class="ion-ios-play"></span></a></div>
-          </div>
+    <section class="site-section">
+        <div class="container">
+            <div id="resultado">
+            </div>
         </div>
-      </div>
     </section>
-    <!-- END section -->
     
-    <section class="site-section bg-light">
-      <div class="container">
-        <div class="row mb-5">
-          <div class="col-md-12 heading-wrap text-center">
-            <h4 class="sub-heading">Blog</h4>
-              <h2 class="heading">Notícias Recentes</h2>
-          </div>
-        </div>
-        <div class="row ">
-          <div class="col-md-4">
-            <div class="post-entry">
-              <img src="images/img_3.jpg" alt="Image placeholder" class="img-fluid">
-              <div class="body-text">
-                <div class="category">A Carreira</div>
-                <h3 class="mb-3"><a href="#">Nova Opção no mercado.</a></h3>
-                <p class="mb-4">Com a visão de fornecer ao nossos clientes uma nova possibilidade de hospedar em um motel de classe e com ótimo custo-benefício, o Motel KageHand é a mais nova opção para você que deseja ter a melhor noite.</p>
-                <p><a href="#" class="btn btn-primary btn-outline-primary btn-sm">Leia Mais...</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="post-entry">
-              <img src="images/img_6.jpg" alt="Image placeholder" class="img-fluid">
-              <div class="body-text">
-                <div class="category">Gerenciamento</div>
-                <h3 class="mb-3"><a href="#">Novo modelo de Gestão</a></h3>
-                <p class="mb-4">Fornecendo principalmente seu serviço através da internet, este irá mostrar um novo modelo de olhar as coisas.</p>
-                <p><a href="#" class="btn btn-primary btn-outline-primary btn-sm">Leia Mais...</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="post-entry">
-              <img src="images/img_5.jpg" alt="Image placeholder" class="img-fluid">
-              <div class="body-text">
-                <div class="category">Novos Quartos</div>
-                <h3 class="mb-3"><a href="#">Quartos Sofisticados</a></h3>
-                <p class="mb-4">O KageHand Motel conta com os melhores quartos para sua estadia. Com altos índices de finez, fornece também serviços que irão atender quaisquer que seja seus desejos.</p>
-                <p><a href="#" class="btn btn-primary btn-outline-primary btn-sm">Leia Mais...</a></p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- END section -->
-   
+
     <footer class="site-footer">
       <div class="container">
         <div class="row mb-5">
@@ -297,5 +186,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
     <script src="js/magnific-popup-options.js"></script>
 
     <script src="js/main.js"></script>
+    <script src="js/script.js"></script>
   </body>
 </html>
