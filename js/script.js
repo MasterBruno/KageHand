@@ -80,9 +80,30 @@ function buscarCPF(){
 function buscarReserva(){
 	var keyword = $('#cpf').val();
 	var senha = $('#senha').val();
-	if(keyword != '') {
+	if(keyword != '' && senha != '') {
 		$.ajax({
 			url: 'buscarReserva.php',
+			type: 'POST',
+			data: {keyword:keyword, senha:senha},
+			success:function(data){
+				$('#resultado').show();
+				$('#resultado').html(data);
+				$('#resultado')[0].scrollIntoView(true);
+			}
+		}); 
+	} else {
+		alert("Informe CPF e Senha!");
+		$('#resultado').fadeOut();
+		$('#resultado').html("");
+	}
+}
+
+function buscarDados(){
+	var keyword = $('#cpf').val();
+	var senha = $('#senha').val();
+	if(keyword != '' && senha != '') {
+		$.ajax({
+			url: 'buscarDados.php',
 			type: 'POST',
 			data: {keyword:keyword, senha:senha},
 			success:function(data){

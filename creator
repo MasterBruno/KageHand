@@ -18,6 +18,7 @@ CREATE TABLE `hospede` (
   `bairro` varchar(30) DEFAULT NULL,
   `cidade` varchar(30) DEFAULT NULL,
   `estado` varchar(2) DEFAULT NULL,
+  `divida` double DEFAULT NULL,
   PRIMARY KEY (`cod_hospede`)
 )ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -28,6 +29,7 @@ CREATE TABLE `conta` (
   `cod_conta` int(11) NOT NULL AUTO_INCREMENT,
   `valor_conta` double NOT NULL,
   `descricao_conta` VARCHAR(30) NOT NULL,
+  `quitado` BOOLEAN NOT NULL,
   PRIMARY KEY (`cod_conta`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -84,7 +86,6 @@ CREATE TABLE `tipo_quarto` (
 --
 CREATE TABLE `quarto` (
   `cod_quarto` int(11) NOT NULL AUTO_INCREMENT,
-  `vago_quarto` BOOL NOT NULL,
   `cod_tipoQ` int(11) NOT NULL,
   PRIMARY KEY (`cod_quarto`),
   FOREIGN KEY (`cod_tipoQ`) REFERENCES `tipo_quarto` (`cod_tipoQ`)
