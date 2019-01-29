@@ -5,7 +5,7 @@
     private $servername = "localhost";
     private $username = "root";
     private $database = "KageHand";
-    private $password = "";
+    private $password = "root10";
 
     function __construct() {
         $this->link = new PDO("mysql:host=$this->servername;dbname=$this->database;charset=utf8", "$this->username", "$this->password");

@@ -23,11 +23,18 @@
                     <h2 class="mb-5">Dados</h2>
                         <form action="register.php" method="post">
                             <div class="row">
-                                <div class="col-sm-12 form-group">                          
+                                <div class="col-sm-6 form-group">                          
                                     <label for="">CPF</label>
                                     <div style="position: relative;">
                                     <span class="fa fa-address-card icon" style="position: absolute; right: 10px; top: 10px;"></span>
                                     <input type="text" class="form-control" id="cpf" name="cpf" minlength="14" maxlength="14" OnKeyPress="formatar('.'###.###.###-##'.', this)" disabled value="'.$rs['cpf'].'"/>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 form-group">                          
+                                    <label for="">Senha</label>
+                                    <div style="position: relative;">
+                                    <span class="fa fa-key icon" style="position: absolute; right: 10px; top: 10px;"></span>
+                                    <input type="password" class="form-control" id="cpf" name="cpf" minlength="8" maxlength="16" value="'.$rs['senha'].'"/>
                                     </div>
                                 </div>
                             </div>
@@ -107,10 +114,27 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-12 form-group">
+						<div class="form-group">
+                            <div class="card-header text-center">Dívidas</div><br>
+							<div class="form-row">
+									<div class="col-md-12">
+										<div class="form-label-group">
+											<label for="inputDivida">Valor em dívidas</label>
+											<input type="text" id="inputDivida" class="form-control" name="divida" placeholder="Rua" required="required" value="'.$rs['divida'].'" disabled>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+                            <div class="form-row">
+                            <div class="col-md-6">
                                 <input type="submit" value="Alterar Dados" class="btn btn-primary">
-                            </div>
+							</div>
+							<div class="col-md-6">
+                                <input type="submit" value="Excluir Cadastro" class="btn btn-danger">
+							</div>
+							</div>
                         </div>
                     </div>
                 </div>

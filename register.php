@@ -17,8 +17,9 @@
     $cidade = isset($_POST['cidade']) ? $_POST['cidade'] : '';
     $estado = isset($_POST['estado']) ? $_POST['estado'] : '';
     
-    $query = "INSERT INTO hospede(`cpf`, `nome`, `sobrenome`, `email`, `cartao`, `rua`, `numero`, `complemento`, `bairro`, `cidade`, `estado`)
-              VALUES ('$cpf', '$nome', '$sobrenome', '$email', '$cartao', '$rua', '$numero', '$complemento', '$bairro', '$cidade', '$estado');";
+	$query = "CALL inserirHosp('$cpf', '$nome', '$sobrenome', '$email', '$cartao', '$rua', '$numero', '$complemento', '$bairro', '$cidade', '$estado')";
+    //$query = "INSERT INTO hospede(`cpf`, `nome`, `sobrenome`, `email`, `cartao`, `rua`, `numero`, `complemento`, `bairro`, `cidade`, `estado`)
+    //          VALUES ('$cpf', '$nome', '$sobrenome', '$email', '$cartao', '$rua', '$numero', '$complemento', '$bairro', '$cidade', '$estado');";
     
     $sql = $link->prepare($query);
     

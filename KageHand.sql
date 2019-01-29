@@ -21,6 +21,7 @@ SET time_zone = "-03:00";
 --
 -- Banco de dados: `KageHand`
 --
+DROP DATABASE IF EXISTS `KageHand`;
 CREATE DATABASE IF NOT EXISTS `KageHand` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `KageHand`;
 
@@ -33,7 +34,7 @@ USE `KageHand`;
 DROP TABLE IF EXISTS `conta`;
 CREATE TABLE `conta` (
   `cod_conta` int(11) NOT NULL,
-  `valor_conta` double NOT NULL,
+  `valor_conta` double(10,2) NOT NULL,
   `descricao_conta` varchar(30) NOT NULL,
   `quitado` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -92,7 +93,8 @@ CREATE TABLE `hospede` (
   `complemento` varchar(15) DEFAULT NULL,
   `bairro` varchar(30) DEFAULT NULL,
   `cidade` varchar(30) DEFAULT NULL,
-  `estado` varchar(2) NOT NULL
+  `estado` varchar(2) NOT NULL,
+  `divida` double(10,2) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
